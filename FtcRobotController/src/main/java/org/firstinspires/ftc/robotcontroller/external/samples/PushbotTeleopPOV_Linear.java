@@ -109,20 +109,20 @@ public class PushbotTeleopPOV_Linear extends LinearOpMode {
                 clawOffset -= CLAW_SPEED;
 
             // Move both servos to new position.  Assume servos are mirror image of each other.
-            clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-            robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
-            robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
+            //clawOffset = Range.clip(clawOffset, -0.5, 0.5);
+           // robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
+            //robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
 
             // Use gamepad buttons to move arm up (Y) and down (A)
-            if (gamepad1.y)
-                robot.armMotor.setPower(robot.ARM_UP_POWER);
-            else if (gamepad1.a)
-                robot.armMotor.setPower(robot.ARM_DOWN_POWER);
-            else
-                robot.armMotor.setPower(0.0);
+            //if (gamepad1.y)
+              //  robot.armMotor.setPower(robot.ARM_UP_POWER);
+            //else if (gamepad1.a)
+              //  robot.armMotor.setPower(robot.ARM_DOWN_POWER);
+            //else
+              //  robot.armMotor.setPower(0.0);
 
             // Send telemetry message to signify robot running;
-            telemetry.addData("claw",  "Offset = %.2f", clawOffset);
+           // telemetry.addData("claw",  "Offset = %.2f", clawOffset);
             telemetry.addData("left",  "%.2f", left);
             telemetry.addData("right", "%.2f", right);
             telemetry.update();

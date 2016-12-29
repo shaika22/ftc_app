@@ -129,6 +129,8 @@ public class SparkyPickShootTank extends OpMode {
             robot.pickMotor.setPower(-1);
         if (pickerOut)
             robot.pickMotor.setPower(1);
+        if (gamepad1.x)
+            robot.pickMotor.setPower(0);
         if (shooter) {
             robot.leftShoot.setPower(1);
             robot.rightShoot.setPower(-1);
@@ -146,12 +148,12 @@ public class SparkyPickShootTank extends OpMode {
             // Keep stepping up until we hit the max value.
             position += INCREMENT;
             robot.guider.setPosition(position);
-                 } else {
+        } else {
             // Keep stepping down until we hit the min value.
             position -= INCREMENT;
             robot.guider.setPosition(position);
-            }
-       // robot.guider.setPosition(position);
+        }
+        // robot.guider.setPosition(position);
         //Picker
         // Send telemetry message to signify robot running;
         // telemetry.addData("claw",  "Offset = %.2f", clawOffset);
@@ -160,6 +162,8 @@ public class SparkyPickShootTank extends OpMode {
         telemetry.addData("shooter", shooter);
         telemetry.addData("guider", guider);
         telemetry.addData("Servo Position", "%5.2f", position);
+        telemetry.addData("pickerIn", pickerIn);
+        telemetry.addData("pickerOut", pickerOut);
     }
 
     /*
