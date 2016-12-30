@@ -29,6 +29,7 @@ public class HardwarePushbot {
     public DcMotor leftShoot = null;
     public DcMotor rightShoot = null;
     public Servo guider = null;
+    public Servo test = null;
     //public DcMotor  armMotor    = null;
     //public Servo    leftClaw    = null;
     //public Servo    rightClaw   = null;
@@ -69,7 +70,7 @@ public class HardwarePushbot {
         pickMotor.setPower(0);
         leftShoot.setPower(0);
         rightShoot.setPower(0);
-        guider.setPosition(0);
+       // guider.setPosition(0.02);
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         leftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);

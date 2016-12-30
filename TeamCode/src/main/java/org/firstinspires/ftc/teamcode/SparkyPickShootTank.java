@@ -61,7 +61,10 @@ public class SparkyPickShootTank extends OpMode {
 
     /* Declare OpMode members. */
     HardwarePushbot robot = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-
+    double position =0.02;
+    double INCREMENT = 0.01;     // amount to slew servo each cycle
+    double MAX_POS = 0.2;     // Maximum rotational position
+    double MIN_POS = 0.02;     // Minimum rotational position
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -94,6 +97,8 @@ public class SparkyPickShootTank extends OpMode {
      * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
      */
     @Override
+
+
     public void loop() {
         double left;
         double right;
@@ -101,13 +106,11 @@ public class SparkyPickShootTank extends OpMode {
         boolean pickerOut;
         double leftShoot;
         double rightShoot;
-        boolean guider;
+        boolean guiderPos;
         //double guiderDown
         boolean shooter;
-        double INCREMENT = 0.1;     // amount to slew servo each CYCLE_MS cycle
-        double MAX_POS = 1.0;     // Maximum rotational position
-        double MIN_POS = 0.0;     // Minimum rotational position
-        double position = (MAX_POS - MIN_POS) / 2; // Start at halfway position
+
+
         //boolean rampUp = true;
         // Rheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         //Driver
@@ -121,7 +124,7 @@ public class SparkyPickShootTank extends OpMode {
         //shooter
         shooter = gamepad1.y;
         //guider
-        guider = gamepad1.b;
+        guiderPos = gamepad1.b;
         //guiderDown=gamepad1.a
         robot.leftMotor.setPower(left);
         robot.rightMotor.setPower(right);
@@ -138,32 +141,30 @@ public class SparkyPickShootTank extends OpMode {
             robot.leftShoot.setPower(0);
             robot.rightShoot.setPower(0);
         }
-        //guider to push particle through shooter
-      /*  if (guider) {
-            robot.guider.setPosition(0.7);
-        } else {
-            robot.guider.setPosition(0.2);
-        }*/
-        if (guider) {
-            // Keep stepping up until we hit the max value.
-            position += INCREMENT;
-            robot.guider.setPosition(position);
-        } else {
-            // Keep stepping down until we hit the min value.
+        //take the guider up to shoot the particle
+        if(gamepad1.b) {
             position -= INCREMENT;
+            position = Range.clip(position, MIN_POS, MAX_POS);
             robot.guider.setPosition(position);
         }
-        // robot.guider.setPosition(position);
+
+//bring down the guider
+        if (gamepad1.a) {
+            // Keep stepping up until we hit the max value.
+            position += INCREMENT;
+            position = Range.clip(position, MIN_POS, MAX_POS);
+            robot.guider.setPosition(position);
+        }
+
+
         //Picker
         // Send telemetry message to signify robot running;
         // telemetry.addData("claw",  "Offset = %.2f", clawOffset);
         telemetry.addData("left", "%.2f", left);
         telemetry.addData("right", "%.2f", right);
         telemetry.addData("shooter", shooter);
-        telemetry.addData("guider", guider);
+        telemetry.addData("guider", guiderPos);
         telemetry.addData("Servo Position", "%5.2f", position);
-        telemetry.addData("pickerIn", pickerIn);
-        telemetry.addData("pickerOut", pickerOut);
     }
 
     /*
