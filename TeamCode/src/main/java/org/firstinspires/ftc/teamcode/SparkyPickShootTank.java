@@ -61,10 +61,11 @@ public class SparkyPickShootTank extends OpMode {
 
     /* Declare OpMode members. */
     HardwarePushbot robot = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-    double position =0.02;
+    double position = 0.02;
     double INCREMENT = 0.01;     // amount to slew servo each cycle
-    double MAX_POS = 0.2;     // Maximum rotational position
+    double MAX_POS = 0.26;     // Maximum rotational position
     double MIN_POS = 0.02;     // Minimum rotational position
+
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -142,7 +143,7 @@ public class SparkyPickShootTank extends OpMode {
             robot.rightShoot.setPower(0);
         }
         //take the guider up to shoot the particle
-        if(gamepad1.b) {
+        if (gamepad1.b) {
             position -= INCREMENT;
             position = Range.clip(position, MIN_POS, MAX_POS);
             robot.guider.setPosition(position);

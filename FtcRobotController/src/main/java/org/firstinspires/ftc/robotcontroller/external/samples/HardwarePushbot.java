@@ -59,7 +59,7 @@ public class HardwarePushbot {
         pickMotor = hwMap.dcMotor.get("left_pick");
         leftShoot = hwMap.dcMotor.get("left_shoot");
         rightShoot = hwMap.dcMotor.get("right_shoot");
-        guider=hwMap.servo.get("guide_shot");
+        guider = hwMap.servo.get("guide_shot");
         //pickMotor   =hwMap.dcMotor.get("right_pick")
         //armMotor    = hwMap.dcMotor.get("left_arm");
         // leftMotor.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
@@ -70,7 +70,7 @@ public class HardwarePushbot {
         pickMotor.setPower(0);
         leftShoot.setPower(0);
         rightShoot.setPower(0);
-       // guider.setPosition(0.02);
+        // guider.setPosition(0.02);
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         leftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
