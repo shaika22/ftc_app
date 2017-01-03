@@ -117,8 +117,8 @@ public class SparkyPickShootTank extends OpMode {
         //Driver
 
         //driver
-        left = -gamepad1.left_stick_y;
-        right = gamepad1.right_stick_y;
+        left = gamepad1.left_stick_y;
+        right = -gamepad1.right_stick_y;
         //picker
         pickerOut = gamepad1.left_bumper;
         pickerIn = gamepad1.right_bumper;

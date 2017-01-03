@@ -100,8 +100,8 @@ public class SparkyAuto extends LinearOpMode {
 
         robot.leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER); //allows to control speed
         robot.rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.leftMotor.setDirection(DcMotor.Direction.FORWARD);
-        robot.rightMotor.setDirection(DcMotor.Direction.REVERSE);
+        robot.leftMotor.setDirection(DcMotor.Direction.REVERSE);
+        robot.rightMotor.setDirection(DcMotor.Direction.FORWARD);
 
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0", "Starting at %7d :%7d",
@@ -118,7 +118,7 @@ public class SparkyAuto extends LinearOpMode {
         // Step through each leg of the path, drive forward, start guider, start shooter,
         // bring down glider, stop shooter, move forward by pushing ball, stop.
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED, 34, 34);  // S1: Forward 40 Inches
+        encoderDrive(DRIVE_SPEED, 38, 38);  // S1: Forward 40 Inches
 
         robot.leftShoot.setPower(1);
         //     sleep(2000);
@@ -127,9 +127,14 @@ public class SparkyAuto extends LinearOpMode {
         robot.guider.setPosition(0.02);
         sleep(2000);
         robot.guider.setPosition(0.26);
+        //the next 4 steps are for particle 2
+     /*   robot.pickMotor.setPower(-1);
+        robot.guider.setPosition(0.02);
+        sleep(2000);
+        robot.guider.setPosition(0.26);*/
         robot.leftShoot.setPower(0);
         robot.rightShoot.setPower(0);
-        encoderDrive(DRIVE_SPEED, 12, 12);  // S1: Forward 8 Inches with 4 Sec timeout
+        encoderDrive(DRIVE_SPEED, 12, 12);  // S1: Forward 12 inches
 
         sleep(1000);     // pause for servos to move
 
