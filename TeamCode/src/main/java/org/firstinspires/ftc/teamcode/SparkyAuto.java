@@ -100,8 +100,8 @@ public class SparkyAuto extends LinearOpMode {
 
         robot.leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER); //allows to control speed
         robot.rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.leftMotor.setDirection(DcMotor.Direction.REVERSE);
-        robot.rightMotor.setDirection(DcMotor.Direction.FORWARD);
+        robot.leftMotor.setDirection(DcMotor.Direction.FORWARD);
+        robot.rightMotor.setDirection(DcMotor.Direction.REVERSE);
 
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0", "Starting at %7d :%7d",

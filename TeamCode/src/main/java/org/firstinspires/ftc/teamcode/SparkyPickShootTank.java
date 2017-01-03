@@ -131,8 +131,10 @@ public class SparkyPickShootTank extends OpMode {
         robot.rightMotor.setPower(right);
         if (pickerIn)
             robot.pickMotor.setPower(-1);
-        if (pickerOut)
+        else if (pickerOut)
             robot.pickMotor.setPower(1);
+        else
+            robot.pickMotor.setPower(0);
         if (gamepad1.x)
             robot.pickMotor.setPower(0);
         if (shooter) {
