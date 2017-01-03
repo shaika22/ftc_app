@@ -118,7 +118,7 @@ public class SparkyAuto extends LinearOpMode {
         // Step through each leg of the path, drive forward, start guider, start shooter,
         // bring down glider, stop shooter, move forward by pushing ball, stop.
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED, 40, 40);  // S1: Forward 40 Inches
+        encoderDrive(DRIVE_SPEED, 34, 34);  // S1: Forward 40 Inches
 
         robot.leftShoot.setPower(1);
         //     sleep(2000);
