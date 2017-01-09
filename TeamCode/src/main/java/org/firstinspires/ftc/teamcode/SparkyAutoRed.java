@@ -33,10 +33,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
@@ -65,12 +63,12 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * This code uses the RUN_TO_POSITION mode to enable the Motor controllers to generate the run profile
  * <p>
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
- * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
+ * Remove or comment out the @Disabled li ne to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name = "Sparky Auto", group = "Pushbot")
+@Autonomous(name = "Sparky Auto Red", group = "Pushbot")
 //@Disabled
-public class SparkyAuto extends LinearOpMode {
+public class SparkyAutoRed extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbot robot = new HardwarePushbot();   // Use a Pushbot's hardware
@@ -118,7 +116,7 @@ public class SparkyAuto extends LinearOpMode {
         // Step through each leg of the path, drive forward, start guider, start shooter,
         // bring down glider, stop shooter, move forward by pushing ball, stop.
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED, 22, 22  );  // S1: Forward 40 Inches
+        encoderDrive(DRIVE_SPEED, 18, 18  );  // S1: Forward 40 Inches
 
         robot.leftShoot.setPower(1);
         //     sleep(2000);
@@ -134,7 +132,7 @@ public class SparkyAuto extends LinearOpMode {
         robot.guider.setPosition(0.26);*/
         robot.leftShoot.setPower(0);
         robot.rightShoot.setPower(0);
-        encoderDrive(DRIVE_SPEED, 28, 28 );  // S1: Forward 12 inches
+        encoderDrive(DRIVE_SPEED, 24, 24 );  // S1: Forward 12 inches
 
         sleep(1000);     // pause for servos to move
 
