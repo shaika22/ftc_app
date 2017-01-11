@@ -81,7 +81,7 @@ public class SparkyAuto extends LinearOpMode {
     static final double WHEEL_DIAMETER_INCHES = 4.0;     // For figuring circumference
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
-    //229
+    //229 This is how you change the S P E E D of the the drive motors
     static final double DRIVE_SPEED = 0.6;
     static final double TURN_SPEED = 0.5;
 
@@ -118,7 +118,7 @@ public class SparkyAuto extends LinearOpMode {
         // Step through each leg of the path, drive forward, start guider, start shooter,
         // bring down glider, stop shooter, move forward by pushing ball, stop.
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED, 22, 22  );  // S1: Forward 40 Inches
+        encoderDrive(DRIVE_SPEED, 4.5, 4.5);  // S1: Forward 40 Inches
 
         robot.leftShoot.setPower(1);
         //     sleep(2000);
@@ -134,7 +134,7 @@ public class SparkyAuto extends LinearOpMode {
         robot.guider.setPosition(0.26);*/
         robot.leftShoot.setPower(0);
         robot.rightShoot.setPower(0);
-        encoderDrive(DRIVE_SPEED, 28, 28 );  // S1: Forward 12 inches
+        encoderDrive(DRIVE_SPEED, 2.5, 2.5);  // S1: Forward 12 inches
 
         sleep(1000);     // pause for servos to move
 
